@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+
+<html>
+    
+<head>
+    <html lang="en-us">
+    <meta charset="utf-8">
+    <title>Juliette Guigue-Directrice Développement durable</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="/js/scrollmovement.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.min.js"></script> <!--lien vers le fichier jquery pour l'effet "hover"-->
+    <script type="text/javascript" src="js/jquery.mixitup.min.js"></script> <!--lien vers fichier JQuery pour l'effet filtre-->
+    
+    <script type="text/javascript">
+    $(function () {
+        
+        var filterList = {
+        
+            init: function () {
+            
+                // Plugin Mixitup, qui permet de filtrer les vignettes par catégorie
+                $('#portfoliolist').mixitup({
+                    targetSelector: '.portfolio',
+                    filterSelector: '.filter',
+                    effects: ['fade'],
+                    easing: 'snap',
+                    // call the hover effect
+                    onMixEnd: filterList.hoverEffect()
+                });             
+            
+            },
+            
+            hoverEffect: function () {
+            
+                // Fonction pour l'effet "hover"
+                $('#portfoliolist .portfolio').hover(
+                    function () {
+                        $(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
+                        $(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');             
+                    },
+                    function () {
+                        $(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad');
+                        $(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');                               
+                    }       
+                );              
+            
+            }
+        };
+        
+        // Lance les deux fonctions "hover" et "filtre"
+        filterList.init();
+        
+        
+    }); 
+    </script>
+ 
+</head>
+
+<body data-spy="scroll" data-target=".navbar">
+    
+    <div class="container"> 
+    <div class="jumbotron">
+        <h1>Juliette Guigue</h1>
+        <p> 9 ans d'experience dans le développement durable, profil public, privé, associatif. </p>
+        <a href="#">Profil Linkedin</a>
+    </div>
+ 
+        
+        <div class="col-md-4">
+            <div class="fields">
+            <h1>Expériences</h1>
+            </div> 
+            <img class="img" src="http://www.loireavelo.fr/var/crtc/storage/images/media/loire-a-velo/socle/images/themes/nature/balade-en-velo-le-long-du-canal-lateral-a-la-loire/3435289-1-fre-FR/balade-en-velo-le-long-du-canal-lateral-a-la-loire.jpg" alt="Expériences" >
+            <div class="listes">
+            <ul>
+                <li><b>Directrice Développement durable</b> - Marie du Vésinet (78)- 5 ans</li>
+                <li><b>Consultante Développement durable</b> - Agence M&C- 4 ans.</li>
+            </ul>
+            </div>
+        </div>
+    
+        <div class="col-md-4">  
+            <div class="fields">
+                <h1>Formations</h1>
+            </div> 
+            <img class="img" src="http://www.univers-nature.com/wp-content/uploads/eolien.jpg" alt="Formations">
+          
+            <div class="listes">
+            <ul>
+                <li><b>Master 2 en Management Européen</b>- IAE Aix en Pce.</li>
+                <li><b>Maîtrise de marketing et gestion des entreprises</b> - IDRAC Lyon.</li>
+                 <li><b>BTS Communication des entreprises</b>- ISCOM Lyon.</li>
+            </ul>
+            </div>
+        </div>
+    
+    <div class="col-md-4">  
+            <div class="fields">
+            <h1>Compétences</h1>
+            </div>
+            <img class="img" src="http://images.sudouest.fr/images/2011/06/11/423681_16908142_460x306.jpg" alt="Compétences">
+            <div class="listes">
+            <ul id="puce">
+                <li><b>Gestion de projets</b></li>
+                <li><b>Communication</b></li>
+                <li><b>Management</b></li>
+            </ul>
+            </div>
+        </div>
+    </div>
+
+
+ <div class="container">
+
+            <h2>Mon portfolio</h2>
+            <!--data-filter permet de filtrer les vignettes par catégorie-->
+            <ul id="filters" class="clearfix row">
+                <li><span class="filter active" data-filter="cat1 cat2 cat3 cat4">Toutes mes catégories</span></li>
+                <li><span class="filter" data-filter="cat1">HTML/CSS</span></li>
+                <li><span class="filter" data-filter="cat2">Javascript</span></li>
+                <li><span class="filter" data-filter="cat3">Bootstrap</span></li>
+                <li><span class="filter" data-filter="cat4">Ruby</span></li>
+            </ul>
+
+            <div id="portfoliolist"> <!--La div qui contient les vignettes des projets-->
+                
+                <div class="portfolio cat2" data-cat="cat2">
+                    <div class="portfolio-wrapper">             
+                        <img src="img/portfolios/logo/5.jpg" alt="" />
+                        <div class="label">
+                            <div class="label-text">
+                                <a class="text-title">Annuaire</a>
+                                <span class="text-category">Javascript</span>
+                            </div>
+                            <div class="label-bg"></div>
+                        </div>
+                    </div>
+                </div>              
+
+                <div class="portfolio cat1" data-cat="cat1">
+                    <div class="portfolio-wrapper">         
+                        <img src="img/portfolios/app/1.jpg" alt="" />
+                        <div class="label">
+                            <div class="label-text">
+                                <a class="text-title">Titre de mon projet HTML/CSS</a>
+                                <span class="text-category">HTML/CSS</span>
+                            </div>
+                            <div class="label-bg"></div>
+                        </div>
+                    </div>
+                </div>      
+                            
+                
+                <div class="portfolio cat4" data-cat="cat4">
+                    <div class="portfolio-wrapper">         
+                        <img src="img/portfolios/card/1.jpg" alt="" />
+                        <div class="label">
+                            <div class="label-text">
+                                <a class="text-title">API Open Food Facts</a>
+                                <span class="text-category">Ruby</span>
+                            </div>
+                            <div class="label-bg"></div>
+                        </div>
+                    </div>
+                </div>  
+                            
+                <div class="portfolio cat1" data-cat="cat1">
+                    <div class="portfolio-wrapper">
+                        <img src="img/portfolios/app/3.jpg" alt="" />
+                        <div class="label">
+                            <div class="label-text">
+                                <a class="text-title">Page de profil</a>
+                                <span class="text-category">HTML/CSS</span>
+                            </div>
+                            <div class="label-bg"></div>
+                        </div>
+                    </div>
+                </div>          
+                
+
+                <div class="portfolio cat2" data-cat="cat2">
+                    <div class="portfolio-wrapper">         
+                        <img src="img/portfolios/logo/1.jpg" alt="" />
+                        <div class="label">
+                            <div class="label-text">
+                                <a class="text-title">Titre de mon projet en Javascript</a>
+                                <span class="text-category">Javascript</span>
+                            </div>
+                            <div class="label-bg"></div>
+                        </div>
+                    </div>
+                </div>                                                                                                                                                          
+                
+                <div class="portfolio cat1" data-cat="cat1">
+                    <div class="portfolio-wrapper">         
+                        <img src="img/portfolios/app/2.jpg" alt="" />
+                        <div class="label">
+                            <div class="label-text">
+                                <a class="text-title">Page placement div</a>
+                                <span class="text-category">HTML/CSS</span>
+                            </div>
+                            <div class="label-bg"></div>
+                        </div>
+                    </div>
+                </div>                                                      
+                
+                <div class="portfolio cat4" data-cat="cat4">
+                    <div class="portfolio-wrapper">         
+                        <img src="img/portfolios/card/2.jpg" alt="" />
+                        <div class="label">
+                            <div class="label-text">
+                                <a class="text-title">Exercice en Ruby</a>
+                                <span class="text-category">Ruby</span>
+                            </div>
+                            <div class="label-bg"></div>
+                        </div>
+                    </div>
+                </div>                              
+                                                                                         
+
+                <div class="portfolio cat3" data-cat="cat3">
+                    <div class="portfolio-wrapper">         
+                        <img src="img/portfolios/icon/1.jpg" alt="" />
+                        <div class="label">
+                            <div class="label-text">
+                                <a class="text-title">Exercice utilisation Bootstrap</a>
+                                <span class="text-category">Bootstrap</span>
+                            </div>
+                            <div class="label-bg"></div>
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="portfolio cat4" data-cat="cat4">
+                    <div class="portfolio-wrapper">         
+                        <img src="img/portfolios/card/3.png" alt="" />
+                        <div class="label">
+                            <div class="label-text">
+                                <a class="text-title">Titre de mon projet avec Ruby</a>
+                                <span class="text-category">Ruby</span>
+                            </div>
+                            <div class="label-bg"></div>
+                        </div>
+                    </div>
+                </div>                                                                                                                                                    
+                
+                <div class="portfolio cat2" data-cat="cat2">
+                    <div class="portfolio-wrapper">         
+                        <img src="img/portfolios/logo/3.jpg" alt="" />
+                        <div class="label">
+                            <div class="label-text">
+                                <a class="text-title">Tic-Tac-Toe</a>
+                                <span class="text-category">Javascript</span>
+                            </div>
+                            <div class="label-bg"></div>
+                        </div>
+                    </div>
+                </div>                                                                  
+
+                <div class="portfolio cat2" data-cat="cat2">
+                    <div class="portfolio-wrapper">         
+                        <img src="img/portfolios/logo/4.jpg" alt="" />
+                        <div class="label">
+                            <div class="label-text">
+                                <a class="text-title">Pierre-Feuille-Ciseau</a>
+                                <span class="text-category">Javascript</span>
+                            </div>
+                            <div class="label-bg"></div>
+                        </div>
+                    </div>
+                </div>      
+
+                <div class="portfolio cat3" data-cat="cat3">
+                    <div class="portfolio-wrapper">         
+                        <img src="img/portfolios/icon/2.jpg" alt="" />
+                        <div class="label">
+                            <div class="label-text">
+                                <a class="text-title">Titre de mon projet Bootstrap</a>
+                                <span class="text-category">Bootstrap</span>
+                            </div>
+                            <div class="label-bg"></div>
+                        </div>
+                    </div>
+                </div>                                                                                                         
+
+
+                <div class="portfolio cat2" data-cat="cat2">
+                    <div class="portfolio-wrapper">         
+                        <img src="img/portfolios/logo/2.jpg" alt="" />
+                        <div class="label">
+                            <div class="label-text">
+                                <a class="text-title">Cookie Clicker</a>
+                                <span class="text-category">Javascript</span>
+                            </div>
+                            <div class="label-bg"></div>
+                        </div>
+                    </div>
+                </div>              
+            </div>
+        
+        </div><!-- container -->
+
+    </main>
+    
+    <footer>
+    
+    <!-- Google map et coordonnées --> 
+    
+         <div class="container">
+    
+    
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.1948812521005!2d2.4337727507744926!3d48.854494108834174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66d5f8a4cb333%3A0x9535ab9bdafaa332!2s55+Rue+de+Vincennes%2C+93100+Montreuil!5e0!3m2!1sfr!2sfr!4v1444853474876" width="50%" frameborder="0" style="border:0" allowfullscreen></iframe>
+       
+        
+            <div class="col-md-6">
+                <h2>Intéressé(e)?</h2> 
+                <p>N'hésitez pas à me contacter :</p> 
+                <p> <a href="mailto:julietteguigue@gmail.com"> Par mail </a> ou par téléphone : 09 78 66 55 44.</p>
+                
+            </div>
+       
+       </div>
+      
+       <!-- Formulaire -->
+       
+        <div class="container">
+            
+            <p><h2>Ou contactez-moi par formulaire : </h2></p>
+            
+            <div class="form">
+                <form method="post" action="traitement.php">
+                
+                    <label for="name"> Votre Nom :</label>
+                    <input type="texte" name="pseudo" id="name" placeholder="Ex: Dupond" class="form-control" />
+                    <br/>
+                    
+                    <label for="surname"> Votre Prénom : </label>
+                    <input type="texte" name="surname"  id="surname" placeholder="Ex: Jean-michel" class="form-control" />
+                    <br/>
+                    
+                    <label for="email"> Votre email : </label>
+                    <input type="email" name="email"  id="email" placeholder="jean-michel-dupond@gmail.com" class="form-control" />
+                    <br/>
+                    
+                    <label for="info"> Laissez-moi un message : </label> 
+                    <br/>
+                    <textarea name="pseudo"  id="info" placeholder="Mon texte" rows="10" cols="50" class="form-control"></textarea>
+                    
+                    <button id="envoyer" name="envoyer" class="btn btn-primary" type="submit">Envoyer</button>
+                
+                    
+            
+                </form>
+            </div>
+            
+       </div>
+            
+    </footer>
+ 
+   
+</body>
+
+</html>
+
